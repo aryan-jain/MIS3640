@@ -7,3 +7,5 @@ print(7*11)
 print(145%12)
 
 print(12-112)
+
+print(12++)
