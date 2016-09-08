@@ -14,9 +14,9 @@ age = 2016-1995
 #print('Hello, %s %s. You are now %d years old' % ('Aryan', 'Jain', 21))
 print('Hello, %s %s. You are now %d years old' % (first_name, last_name, age))
 
-'Today is %2d-%02d.' % (9, 6) #%2d adds an extra space before the 9, #02d adds an extra space and a '0' before the 6.
-'Pi equals %.2f.' % 3.1415926 #%.2f limits the float to 2 decimal places
-'Growth rate: %d %%' % 7 #%% allows the user to actually have a '%' in the output.
+print('Today is %2d-%02d.' % (9, 6)) #%2d adds an extra space before the 9, #02d adds an extra space and a '0' before the 6.
+print('Pi equals %.2f.' % 3.1415926) #%.2f limits the float to 2 decimal places
+print('Growth rate: %d %%' % 7) #%% allows the user to actually have a '%' in the output.
 
 
 input()
