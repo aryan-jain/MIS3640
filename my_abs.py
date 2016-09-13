@@ -1,9 +1,11 @@
 def my_abs(x):
     if x >= 0:
-        print(x)
+        return x
     else:
-        print(-x)
+        return (-x)
 
-my_abs(-100)
-my_abs(-4.234)
-my_abs(13)
+a = my_abs(-100)
+b = my_abs(-4.234)
+c = my_abs(13)
+
+print(a, b, c)
