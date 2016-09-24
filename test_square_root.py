@@ -1,5 +1,4 @@
 from mysqrt import mysqrt
-from tabulate import tabulate
 import math
 
 def test_square_root():
