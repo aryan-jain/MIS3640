@@ -104,13 +104,15 @@ def is_alphabetical(word):
     """
     Recursive version of is_abecedarian function.
     """
-    if word[1].lower() < word[0].lower():
+    if len(word)<2:
+        return True
+    elif word[1].lower() < word[0].lower():
         return False
     else:
-        is_alphabetical(word[1:len(word)-1])
-    return True
+        return is_alphabetical(word[1:len(word)])
+
+    
 
 print('is_alphabetical')
-print(is_abecedarian('abel'))
-print(is_abecedarian('able'))
-        
+print(is_alphabetical('abel'))
+print(is_alphabetical('able'))   
