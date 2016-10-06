@@ -7,7 +7,10 @@ def interlock(word_list, word):
     word_list: list of strings
     word: string
     """
-    pass
+    word1 = word[1::2]
+    word2 = word[0::2]
+    if in_bisect(word_list,word1) and in_bisect(word_list, word2):
+        return True
 
 
 def interlock_general(word_list, word, n=3):
@@ -17,7 +20,13 @@ def interlock_general(word_list, word, n=3):
     word: string
     n: number of interleaved words
     """
-    pass
+    words = []
+    for i in range(0,n-1,1):
+        words.append(word[i::n])
+    for j in words:
+        if not in_bisect(word_list, j):
+            return False
+    return True
 
 
 if __name__ == '__main__':
