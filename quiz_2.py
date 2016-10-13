@@ -87,7 +87,7 @@ def print_hist(data):
     Z: ********
 
     '''
-    for i in data:
+    for i in sorted(data):
         stars = str()
         for j in range(data[i]):
             stars += '*'
