@@ -89,10 +89,7 @@ def print_hist(data):
     '''
     for i in sorted(data):
         stars = str()
-        for j in range(data[i]):
-            stars += '*'
-            
-        print(i + ': ' + stars)
+        print(i + ': ' + '*' * data[i])
 
 #testing
 letter_counts={'C': 6, 'A': 3, 'B': 10, 'Z': 8}
