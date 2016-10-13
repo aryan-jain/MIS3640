@@ -88,7 +88,6 @@ def print_hist(data):
 
     '''
     for i in sorted(data):
-        stars = str()
         print(i + ': ' + '*' * data[i])
 
 #testing
