@@ -23,7 +23,7 @@ def most_frequent(word):
 def most_frequent(word):
     from time import sleep
     result = dict()
-    print('Please wait. Parsing through textfile. This may take a while.')
+    print('Please wait. Parsing through textfile. This may take a while.')   #Artificially created a loading delay to ensure the user that the program is still working
     print('Loading...', end='')
     sleep(1)
     print('.', end="")
@@ -53,10 +53,33 @@ def most_frequent(word):
 
 
 #testing
-most_frequent('bookkeeper')
+#most_frequent('bookkeeper')
 
-eng = open('blackcat.txt')
+#eng = open('blackcat.txt')
 
 # https://docs.python.org/3/library/functions.html#repr
 
-most_frequent(eng)
+#most_frequent(eng)
+
+
+def find_anagrams(wordlist):
+    '''
+    This function takes a word list as an input and prints all the sets of words in that 
+    word list that are anagrams of one another.
+    '''
+    d = dict()
+    for line in wordlist:
+        key = str(line.strip())
+        if str(sorted(key)) not in d:
+            d[str(sorted(key))] = [key]
+        else:
+            d[str(sorted(key))].append(key)
+    for k in d:
+        if len(d[k]) > 1:
+            print(d[k])
+
+#testing
+wordlist = open('words.txt')
+
+testlist = ['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled', 'retainers', 'ternaries', 'resmelts', 'smelters', 'termless']
+find_anagrams(wordlist)
