@@ -74,7 +74,8 @@ def find_anagrams(wordlist):
             d[str(sorted(key))] = [key]
         else:
             d[str(sorted(key))].append(key)
-    for k in d:
+
+    for k in sorted(d, key=lambda k: len(d[k]), reverse=True):
         if len(d[k]) > 1:
             print(d[k])
 
