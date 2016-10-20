@@ -128,8 +128,6 @@ def random_word(hist):
     """Chooses a random word from a histogram.
 
     The probability of each word is proportional to its frequency.
-
-    *Requires choice package from numpy.random library
     """
     total = total_words(hist)
     temp = []
