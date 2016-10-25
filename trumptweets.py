@@ -26,8 +26,15 @@ def create_file(filename, query):
 
     t = Twython(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
 
-    data = t.search(q=query, count=100, result_type = 'mixed')
+    result = t.search(q=query, count=100, result_type = 'mixed')
 
+    data = list()
+
+    for status in result['statuses']:
+        # print(status['user']['name'])
+        #print(status['text'])
+        data.append(status['text'])
+    
     filename += '.pickle'
 
     if not os.path.exists(filename):
@@ -36,7 +43,14 @@ def create_file(filename, query):
         f.close
         print('File created as %s.' % filename)
     else:
-        print("File %s already exists. Use load_file(filename) to open it" % filename)
+        response = input("File %s already exists. Replace existing? (Y/N):    " % filename)
+        if response.lower() == 'y':
+            f = open(filename,'w')
+            pickle.dump(data,f)
+            f.close
+            print('File replaced as %s.' % filename)
+        elif response.lower() == 'n':
+            print('Action aborted.')
 
 
 create_file('trumptweets', "@realDonaldTrump -filter:retweets")
