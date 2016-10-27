@@ -32,7 +32,7 @@ def create_file(filename, query):
 
     for status in result['statuses']:
         # print(status['user']['name'])
-        #print(status['text'])
+        # print(status['text'])
         data.append(status['text'])
     
     filename += '.pickle'
