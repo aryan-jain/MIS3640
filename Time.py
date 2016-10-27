@@ -43,6 +43,15 @@ def is_after(t1, t2):
     # return True
     return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
 
+noon_time = Time()
+noon_time.hour = 12
+noon_time.minute = 0
+noon_time.second = 0
+later_time = Time()
+later_time.hour = 12
+later_time.minute = 1
+later_time.second = 0
+print(is_after(later_time, noon_time))
 
 """"""""""""""""""""""""""""""""""""
 # Prototyping
@@ -137,11 +146,38 @@ def valid_time(time):
         return False
     return True
 
+# Uncomment below for testing
+
+start = Time()
+start.hour = 9
+start.minute = 45
+start.second =  30
+
+duration = Time()
+duration.hour = 10
+duration.minute = 35
+duration.second = 45
+
+done = add_time2(start, duration)
+print_time(done)
 
 """"""""""""""""""""""""""""""""""""
 # Exercise 3
 """"""""""""""""""""""""""""""""""""
 
+
+# def substract_time(t1, t2):
+#     """Substracts two time objects.
+
+#     t1, t2: Time
+
+#     returns: Time
+#     """
+#     if is_after(t1,t2):
+#         seconds = time_to_int(t1) - time_to_int(t2)
+#     else:
+#         seconds = time_to_int(t2) - time_to_int(t1)        
+#     return int_to_time(seconds)
 
 def substract_time(t1, t2):
     """Substracts two time objects.
@@ -150,8 +186,11 @@ def substract_time(t1, t2):
 
     returns: Time
     """
-    pass
+    assert valid_time(t1) and valid_time(t2)
+    seconds = abs(time_to_int(t2) - time_to_int(t1))        
+    return int_to_time(seconds)
 
+print_time(substract_time(done, duration))
 
 """"""""""""""""""""""""""""""""""""
 # Exercise 4
@@ -160,8 +199,11 @@ def substract_time(t1, t2):
 
 def mul_time(t1, factor):
     """Multiplies a Time object by a factor."""
-    pass
+    assert factor >= 0, 'factor must be positive'
+    s = time_to_int(t1)*factor
+    return int_to_time(abs(s))
 
+print_time(mul_time(noon_time, -2))
 
 def main():
     # if a movie starts at noon...
@@ -169,11 +211,6 @@ def main():
     noon_time.hour = 12
     noon_time.minute = 0
     noon_time.second = 0
-    later_time = Time()
-    later_time.hour = 12
-    later_time.minute = 1
-    later_time.second = 0
-    print(is_after(later_time, noon_time))
 
     print('Starts at', end=' ')
     print_time(noon_time)
