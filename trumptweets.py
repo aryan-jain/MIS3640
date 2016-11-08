@@ -38,14 +38,14 @@ def create_file(filename, query):
     filename += '.pickle'
 
     if not os.path.exists(filename):
-        f = open(filename,'w')
+        f = open(filename,'wb')
         pickle.dump(data,f)
         f.close
         print('File created as %s.' % filename)
     else:
         response = input("File %s already exists. Replace existing? (Y/N):    " % filename)
         if response.lower() == 'y':
-            f = open(filename,'w')
+            f = open(filename,'wb')
             pickle.dump(data,f)
             f.close
             print('File replaced as %s.' % filename)
@@ -53,4 +53,15 @@ def create_file(filename, query):
             print('Action aborted.')
 
 
-create_file('trumptweets', "@realDonaldTrump -filter:retweets")
+#create_file('trumptweets', "@realDonaldTrump -filter:retweets")
+
+
+def open_file(filename):
+    input_file = open(filename,'rb')
+    tweets = pickle.load(input_file)
+    input_file.close()
+    return tweets
+
+#trump = open_file('trumptweets.pickle')
+
+#print(trump)
