@@ -1,6 +1,7 @@
 from Person import Person
 from BabsonPerson import BabsonPerson
 from Student import *
+from Professor import *
 
 # TODO: add more testing code
 
@@ -11,7 +12,7 @@ def main():
     s3 = UG('Jason Wang', 2018)
     s4 = Grad('Matt Damon')
     s5 = UG('Mark Zuckerberg', 2019)
-    p1 = BabsonPerson('Zhi Li')
+    p1 = Professor('Zhi Li', 'MIS3640')
     p2 = BabsonPerson('Shankar')
     p3 = BabsonPerson('Steve Gordon')
     q1 = Person('Bill Gates')

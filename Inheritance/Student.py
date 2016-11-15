@@ -21,12 +21,8 @@ class UG(Student):
 
 class Grad(Student):
 
-    def __init__(self, name, classYear):
+    def __init__(self, name):
         BabsonPerson.__init__(self, name)
-        self.year = classYear
-
-    def getClass(self):
-        return self.year
 
     def speak(self, utterance):
         return BabsonPerson.speak(self, utterance)
@@ -53,10 +49,10 @@ def main():
 
     print(s4.speak('I am not sure why I am here.'))
 
-    # print(isStudent(s1))
+    print(isStudent(s1))
 
-    # p1 = Person('Hillary Clinton')
-    # print(isStudent(p1))
+    p1 = Person('Hillary Clinton')
+    print(isStudent(p1))
 
 if __name__ == '__main__':
     main()

@@ -1,3 +1,5 @@
+from BabsonPerson import *
+
 class Professor(BabsonPerson):
 
     def __init__(self, name, course):
@@ -14,8 +16,8 @@ class Professor(BabsonPerson):
 
 def main():
     faculty = Professor('Zhi Li', 'MIS 3640')
-    faculty.speak('Python is cool!')
-    faculty.lecture('Python is easy.')
+    print(faculty.speak('Python is cool!'))
+    print(faculty.lecture('Python is easy.'))
 
 if __name__ == '__main__':
     main()

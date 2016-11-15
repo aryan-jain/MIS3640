@@ -12,17 +12,18 @@ def main():
 
     BabsonPersonList = [b1, b2, b3]
 
-    # for everyone in BabsonPersonList:
-    #     print(everyone)
-    #     print(everyone.speak('how are you?'))
+    for everyone in BabsonPersonList:
+        print(everyone, end='   ')
+        print(everyone.idNum)
+        print(everyone.speak('how are you?'))
 
-    # BabsonPersonList.sort()
-    # print()
-    # print('After sorting:')
-    # print()
-    # for everyone in BabsonPersonList:
-    #     print(everyone)
-    #     print(everyone.speak('how are you?'))
+    BabsonPersonList.sort()
+    print()
+    print('After sorting:')
+    print()
+    for everyone in BabsonPersonList:
+        print(everyone)
+        print(everyone.speak('how are you?'))
 
     p4 = Person('Donald Trump')
     p5 = Person('Steve Wozniak')
