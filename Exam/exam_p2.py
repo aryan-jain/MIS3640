@@ -97,10 +97,12 @@ class Text(object):
         x = str()
         t = self.get_text()
         for j in range(len(t)):
-            if(t[j].lower() in " —’'!@#$%^&*()-_+={}[]|\:;'<>?,./\""):
+            if(t[j] in " —’'!@#$%^&*()-_+={}[]|\:;'<>?,./\""):
                 x += t[j]
+            elif t[j].isupper():
+                x += cipher[t[j].lower()].upper()
             else:
-                x += cipher[t[j].lower()]
+                x += cipher[t[j]]
         return x
 
 

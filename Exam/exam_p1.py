@@ -1,35 +1,71 @@
-def speak_Chinese(num):
+# def speak_Chinese(num):
+#     '''
+#     number: a integer, 0<=number<99
+
+#     Returns: a string that is the number in Chinese
+#     '''
+#     chnums = {'0':'ling', '1':'yi', '2':'er', '3':'san', '4':'si', '5':'wu', '6':'liu', '7':'qi', '8':'ba', '9':'jiu', '10':'shi', '100':'bai'}
+
+#     if num < 0 or num > 999:
+#         raise ValueError
+#     number = str(num)
+#     if number in chnums.keys():
+#         if num == 100:
+#             return 'yi bai'
+#         else:
+#             return chnums[number]
+#     if len(number) == 2:
+#         if number[0] == '1':
+#             return chnums['10'] + ' ' + chnums[number[1]]
+#         elif number[1] == '0':
+#             return chnums[number[0]] + ' ' + chnums['10']
+#         else:
+#             return chnums[number[0]] + ' ' + chnums['10'] + ' ' + chnums[number[1]]
+#     if len(number) == 3:
+#         if number[1:] == '00':
+#             return chnums[number[0]] + ' ' + chnums['100']
+#         elif number[1] == '0':
+#             return chnums[number[0]] + ' ' + chnums['100'] + ' ' + chnums['0'] + ' ' + speak_Chinese(int(number[2]))
+#         else:
+#             return chnums[number[0]] + ' ' + chnums['100'] + ' ' + speak_Chinese(int(number[1:]))
+#     return 'ling'
+        
+def speak_Chinese(number):
     '''
     number: a integer, 0<=number<99
 
     Returns: a string that is the number in Chinese
     '''
-    chnums = {'0':'ling', '1':'yi', '2':'er', '3':'san', '4':'si', '5':'wu', '6':'liu', '7':'qi', '8':'ba', '9':'jiu', '10':'shi', '100':'bai'}
+    chnums = {0:'ling', 1:'yi', 2:'er', 3:'san', 4:'si', 5:'wu', 6:'liu', 7:'qi', 8:'ba', 9:'jiu', 10:'shi', 100:'bai'}
 
-    if num < 0 or num > 999:
+    if number < 0 or number > 999:
         raise ValueError
-    number = str(num)
-    if number in chnums.keys():
-        if num == 100:
+
+    elif number in chnums.keys():
+        if number == 100:
             return 'yi bai'
         else:
             return chnums[number]
-    if len(number) == 2:
-        if number[0] == '1':
-            return chnums['10'] + ' ' + chnums[number[1]]
-        elif number[1] == '0':
-            return chnums[number[0]] + ' ' + chnums['10']
+    
+    elif 10 < number <= 99:
+        q, r = divmod(number, 10)
+        if q == 1:
+            return chnums[10] + ' ' + chnums[r]
+        elif r == 0:
+            return chnums[q] + ' ' + chnums[10]
         else:
-            return chnums[number[0]] + ' ' + chnums['10'] + ' ' + chnums[number[1]]
-    if len(number) == 3:
-        if number[1:] == '00':
-            return chnums[number[0]] + ' ' + chnums['100']
-        elif number[1] == '0':
-            return chnums[number[0]] + ' ' + chnums['100'] + ' ' + chnums['0'] + ' ' + speak_Chinese(int(number[2]))
+            return chnums[q] + ' ' + chnums[10] + ' ' + chnums[r]
+    
+    elif 100 <= number <= 999:
+        q, r = divmod(number, 100)
+        if r == 0:
+            return chnums[q] + ' ' + chnums[100]
+        elif 0 < r <10:
+            return chnums[q] + ' ' + chnums[100] + ' ' + chnums[0] + ' ' + chnums[r]
         else:
-            return chnums[number[0]] + ' ' + chnums['100'] + ' ' + speak_Chinese(int(number[1:]))
-    return 'ling'
-        
+            return chnums[q] + ' ' + chnums[100] + ' ' + speak_Chinese(r)
+
+    return 'Could not translate number'
 
 # For testing
 def main():
